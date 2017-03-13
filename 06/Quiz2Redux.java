@@ -14,10 +14,13 @@ public class Quiz2Redux{
     }
     //2. add whatever other parameters you need and complete the method
     public static void combinationH(String s, ArrayList<String> words, int x,int y){
-	if (x> words.size()){
+	System.out.println(words);
+	
+	if (x>= s.length()){
 	    words.add("");
 	}
-	if (y+1>words.size()){
+	else if (y+1>s.length()){
+	    words.add(s.substring(x,y));
 	    combinationH(s, words, x+1, x+2);
 	}
 	else{
@@ -25,6 +28,10 @@ public class Quiz2Redux{
 	    words.add(s.substring(x,y));
 	    combinationH(s, words, x, y+1);
 	}
+    }
+    public static void main(String[] args){
+	//System.out.println(combinations("abc"));
+	System.out.println(combinations("help"));
     }
 }
 
