@@ -14,18 +14,23 @@ public class Quiz2Redux{
     }
     //2. add whatever other parameters you need and complete the method
     public static void combinationH(String s, ArrayList<String> words, int x,int y){
-	System.out.println(words);
 	
 	if (x>= s.length()){
 	    words.add("");
 	}
 	else if (y+1>s.length()){
-	    words.add(s.substring(x,y));
+	    if (!words.contains(s.substring(x,y))){
+		words.add(s.substring(x,y));
+	    }
 	    combinationH(s, words, x+1, x+2);
 	}
 	else{
-	    words.add(s.charAt(x) + "" + s.charAt(y));
-	    words.add(s.substring(x,y));
+	    if(!words.contains(s.charAt(x) + "" + s.charAt(y))){
+		words.add(s.charAt(x) + "" + s.charAt(y));
+	    }
+	    if (!words.contains(s.substring(x,y))){
+		words.add(s.substring(x,y));
+	    }
 	    combinationH(s, words, x, y+1);
 	}
     }
@@ -34,4 +39,3 @@ public class Quiz2Redux{
 	System.out.println(combinations("help"));
     }
 }
-
