@@ -33,3 +33,4 @@ public class Quick{
 	hold= hold + "]";
 	return hold;
     }
+}
